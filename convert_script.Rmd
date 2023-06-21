@@ -1,0 +1,37 @@
+---
+title: "From file"
+author: "Me"
+date: "2023-06-12"
+output: html_document
+---
+
+```{r}
+
+data <- data.frame(read.csv(file.choose(),header = FALSE))
+
+
+```
+
+```{r}
+library("xlsx")
+data <- data.frame(read.xlsx(file.choose(),1))
+```
+
+```{r}
+library (writexl)
+```
+
+```{r}
+write_xlsx(data, 'D:\\Python\\Programs\\dyplom\\complete.xlsx')
+```
+
+```{r}
+data1 <- data.frame(read.csv('D:\\Python\\Programs\\dyplom\\result\\Predict_RendVendable.txt',header = FALSE))
+data2 <- data.frame(read.csv('D:\\Python\\Programs\\dyplom\\result\\Predict_RendPetit.txt',header = FALSE))
+data3 <- data.frame(read.csv('D:\\Python\\Programs\\dyplom\\result\\Predict_RendMoy.txt',header = FALSE))
+data4 <- data.frame(read.csv('D:\\Python\\Programs\\dyplom\\result\\Predict_RendGros.txt',header = FALSE))
+
+data <- data.frame(data1,data2,data3,data4)
+
+write_xlsx(data, 'D:\\Python\\Programs\\dyplom\\result\\predict.xlsx')
+```
